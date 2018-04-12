@@ -8,7 +8,7 @@ class Header{
 	public $email = "";
 	protected $links = array();
 
-	function __consturct($title, $address, $phone, $email, $links){
+	function __construct($title, $address, $phone, $email, $links){
 		$this->title = $title;
 		$this->email = $email;
 		if($address != ""){ //optional
@@ -23,18 +23,18 @@ class Header{
 	}
 	
 	function printHeader(){
-		echo "<h1>" . $title . "</h1>";
-		echo "<p>Email: " . $email . "</p>";
-		if($address != ""){
-			echo "<p>Address: " . $address . "</p>";
+		echo "<h1>" . $this->title . "</h1>";
+		echo "<p>Email: " . $this->email . "</p>";
+		if($this->address != ""){
+			echo "<p>Address: " . $this->address . "</p>";
 		}
-		if($phone != ""){
-			echo "<p>Phone: " . $phone . "</p>";
+		if($this->phone != ""){
+			echo "<p>Phone: " . $this->phone . "</p>";
 		}
-		if(!empty($links)){
+		if(!empty($this->links)){
 			echo "<p>Links:</p><ul>";
-			for($i = 0; $i < count($links); $i++){
-				echo "<li>" . $links[$i] . "</li>";
+			for($i = 0; $i < count($this->links); $i++){
+				echo "<li>" . $this->links[$i] . "</li>";
 			}
 			echo "</ul>";
 		}		
