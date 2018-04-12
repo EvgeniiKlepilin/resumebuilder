@@ -1,5 +1,46 @@
 <?php
 
+class Header{
+	
+	public $title = "";
+	public $address = "";
+	public $phone = "";
+	public $email = "";
+	protected $links = array();
+
+	function __consturct($title, $address, $phone, $email, $links){
+		$this->title = $title;
+		$this->email = $email;
+		if($address != ""){ //optional
+			$this->address = $address;
+		}
+		if($phone != ""){ //optional
+			$this->phone = $phone;
+		}
+		if(!empty($links)){ //optional
+			$this->links = $links;
+		}
+	}
+	
+	function printHeader(){
+		echo "<h1>" . $title . "</h1>";
+		echo "<p>Email: " . $email . "</p>";
+		if($address != ""){
+			echo "<p>Address: " . $address . "</p>";
+		}
+		if($phone != ""){
+			echo "<p>Phone: " . $phone . "</p>";
+		}
+		if(!empty($links)){
+			echo "<p>Links:</p><ul>";
+			for($i = 0; $i < count($links); $i++){
+				echo "<li>" . $links[$i] . "</li>";
+			}
+			echo "</ul>";
+		}		
+	}
+}
+
 class Item{
 	
 	public $title = "";
@@ -42,18 +83,22 @@ class Experience extends Item{
 		} else if($startDate != ""){
 			$this->startDate = $startDate;
 			$this->endDate = "Now";
+		}
+		if(!empty($referenceList)){
+			$this->referenceList = $referenceList;
 		}		
-		$this->referenceList = $referenceList;
 	}
 	
 	function printItem(){
 		parent::printItem();
-		echo "<h2>References:</h2>";
+		if(!empty($this->referenceList)){
+			echo "<h2>References:</h2>";
 		echo "<ul>";
 		for($i = 0; $i < count($referenceList); $i++){
 			echo "<li>" . $referenceList[$i] . "</li>";
 		}
 		echo "</ul>";
+		}		
 	}
 }
 
