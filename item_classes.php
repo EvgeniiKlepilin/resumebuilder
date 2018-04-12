@@ -7,27 +7,16 @@ class Item{
 	public $startDate = "";
 	public $endDate = "";
 	
-	function __construct($title){
-		$this->title = $title;
-	}
-	
-	function __construct($title, $description){
-		$this->title = $title;
-		$this->description = $description;
-	}
-	
-	function __construct($title, $description, $startDate){
-		$this->title = $title;
-		$this->description = $description;
-		$this->startDate = $startDate;
-		$this->endDate = "Now";
-	}
-	
 	function __construct($title, $description, $startDate, $endDate){
 		$this->title = $title;
 		$this->description = $description;
-		$this->startDate = $startDate;
-		$this->endDate = $endDate;
+		if($startDate != "" && $endDate != ""){
+			$this->startDate = $startDate;
+			$this->endDate = $endDate;
+		} else if($startDate != ""){
+			$this->startDate = $startDate;
+			$this->endDate = "Now";
+		}		
 	}
 
 	function printItem(){
@@ -47,8 +36,13 @@ class Experience extends Item{
 	function __construct($title, $description, $startDate, $endDate, $referenceList){
 		$this->title = $title;
 		$this->description = $description;
-		$this->startDate = $startDate;
-		$this->endDate = $endDate;
+		if($startDate != "" && $endDate != ""){
+			$this->startDate = $startDate;
+			$this->endDate = $endDate;
+		} else if($startDate != ""){
+			$this->startDate = $startDate;
+			$this->endDate = "Now";
+		}		
 		$this->referenceList = $referenceList;
 	}
 	
@@ -65,12 +59,35 @@ class Experience extends Item{
 
 class Education extends Item{
 	
-	function __construct($title){
+}
+
+class Skillset extends Item{
+	
+	protected $skillsList = array();
+	
+	function __construct($title, $description, $startDate, $endDate, $skillsList){
 		$this->title = $title;
+		if($description != ""){ //optional description for skillset
+			$this->description = $description;
+		}
+		if($startDate != "" && $endDate != ""){
+			$this->startDate = $startDate;
+			$this->endDate = $endDate;
+		} else if($startDate != ""){
+			$this->startDate = $startDate;
+			$this->endDate = "Now";
+		}		
+		$this->skillsList = $skillsList;
 	}
 	
 	function printItem(){
-		echo "<p>" . $title . "</p>";
+		parent::printItem();
+		echo "<h2>Skills:</h2>";
+		echo "<ul>";
+		for($i = 0; $i < count($referenceList); $i++){
+			echo "<li>" . $referenceList[$i] . "</li>";
+		}
+		echo "</ul>";
 	}
 }
 
