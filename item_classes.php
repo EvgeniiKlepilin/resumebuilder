@@ -61,11 +61,11 @@ class Item{
 	}
 
 	function printItem(){
-		echo "<h3>" . $title . "</h3>";
+		echo "<h2>" . $this->title . "</h2>";
 		if($startDate != ""){
-			echo "<h2>" . $startDate . " - " . $endDate . "</h2>";
+			echo "<h4>" . $this->startDate . " - " . $this->endDate . "</h4>";
 		}		
-		echo "<p>" . $description . "</p>";
+		echo "<p>" . $this->description . "</p>";
 	}
 
 }
@@ -92,10 +92,10 @@ class Experience extends Item{
 	function printItem(){
 		parent::printItem();
 		if(!empty($this->referenceList)){
-			echo "<h2>References:</h2>";
+			echo "<h3>References:</h3>";
 		echo "<ul>";
-		for($i = 0; $i < count($referenceList); $i++){
-			echo "<li>" . $referenceList[$i] . "</li>";
+		for($i = 0; $i < count($this->referenceList); $i++){
+			echo "<li>" . $this->referenceList[$i] . "</li>";
 		}
 		echo "</ul>";
 		}		
@@ -127,10 +127,10 @@ class Skillset extends Item{
 	
 	function printItem(){
 		parent::printItem();
-		echo "<h2>Skills:</h2>";
+		echo "<h3>Skills:</h3>";
 		echo "<ul>";
-		for($i = 0; $i < count($referenceList); $i++){
-			echo "<li>" . $referenceList[$i] . "</li>";
+		for($i = 0; $i < count($this->referenceList); $i++){
+			echo "<li>" . $this->referenceList[$i] . "</li>";
 		}
 		echo "</ul>";
 	}
