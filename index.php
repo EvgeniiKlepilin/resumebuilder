@@ -2,7 +2,7 @@
 	require "item_classes.php";
 	
 	$title = "ResumeBuilder: Evgenii Klepilin";
-	$stylesheet = "";
+	$stylesheet = "style.css";
 	$charset = "UTF-8";
 	$description = "Resume One-Page Website builder with CMS in PHP";
 	$author = "Evgenii Klepilin";

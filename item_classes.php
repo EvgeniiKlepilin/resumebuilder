@@ -176,7 +176,7 @@ class PageManager{
 			echo "<meta name=\"keywords\" content=\"" . arrayToCommaString($this->keywords) . "\">";
 		}
 		echo "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">";
-		echo "</head><body>";
+		echo "</head><body class=\"content\">";
 	}
 	
 	function endPage(){
