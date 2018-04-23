@@ -102,13 +102,66 @@
 	$experience4->printItem();
 	
 	$title = "ResumeBuilder";
-	$description = "Resume One-Page Website builder with CMS in PHP. Created project to demostrate profound knowledge of PHP in OOP concepts.";
+	$description = "Resume One-Page Website builder with CMS in PHP. 
+		Created project to demostrate profound knowledge of PHP in OOP concepts.";
 	$startDate = "April 2018";
 	$endDate = "";
 	$referenceList = array("https://github.com/EvgeniiKlepilin", "https://evgeniiklepilin.github.io/resumebuilder/");
 	
 	$experience1 = new Experience($title, $description, $startDate, $endDate, $referenceList);
 	$experience1->printItem();
+	
+	$title = "Handong Global University: Information Technology";
+	$description = "Graduated from HGU in 2017 with a degree in Information 
+		Technology from School of Computer Science and Electrical Engineering.";
+	$startDate = "March 2013";
+	$endDate = "June 2017";
+	
+	$education = new Education($title, $description, $startDate, $endDate);
+	$education->printItem();
+	
+	$title = "Handong Global University: Global Management";
+	$description = "Graduated from HGU in 2017 with a degree in Global Management
+		from School of Economics and Management. Global Management 
+		is a second degree in double degree program.";
+	$startDate = "March 2013";
+	$endDate = "June 2017";
+	
+	$education = new Education($title, $description, $startDate, $endDate);
+	$education->printItem();
+	
+	$title = "Android Skills:";
+	$description = "List of skills that I possess in the realm of Android Development.";
+	$startDate = "";
+	$endDate = "";
+	$skillsList = array("Full-Stack Android Development", "Java", "RxJava", 
+		"Realm DB", "Retrofit", "ButterKnife", "Dagger", "okHTTP", "GSON", 
+		"Glide", "Lombok", "Android Studio");
+	
+	$androidSkills = new Skillset($title, $description, $startDate, $endDate, $skillsList);
+	$androidSkills->printItem();
+	
+	$title = "Web Tech Skills:";
+	$description = "List of skills that I possess in the realm of Web Development.";
+	$startDate = "";
+	$endDate = "";
+	$skillsList = array("HTML5", "CSS", "JSP", "AJAX", "JSON", "PHP", "MySQL", 
+		"phpMyAdmin", "Network Protocols");
+	
+	$webSkills = new Skillset($title, $description, $startDate, $endDate, $skillsList);
+	$webSkills->printItem();
+	
+	$title = "Conceptual Skills:";
+	$description = "List of skills that represent my knowledge in 
+		different development and workflow concepts.";
+	$startDate = "";
+	$endDate = "";
+	$skillsList = array("e-Commerce Development", "Live-Streaming Development", 
+		"Front End Development", "Back End Development", "Website Security", 
+		"Project Management", "Scrum Workflow", "TDD");
+	
+	$conceptSkills = new Skillset($title, $description, $startDate, $endDate, $skillsList);
+	$conceptSkills->printItem();
 	
 	$page->endPage();
 ?>

@@ -64,7 +64,7 @@ class Item{
 
 	function printItem(){
 		echo "<h2>" . $this->title . "</h2>";
-		if(!empty($startDate)){
+		if(!empty($this->startDate)){
 			echo "<h4>" . $this->startDate . " - " . $this->endDate . "</h4>";
 		}		
 		echo "<p>" . $this->description . "</p>";
@@ -131,8 +131,8 @@ class Skillset extends Item{
 		parent::printItem();
 		echo "<h3>Skills:</h3>";
 		echo "<ul>";
-		for($i = 0; $i < count($this->referenceList); $i++){
-			echo "<li>" . $this->referenceList[$i] . "</li>";
+		for($i = 0; $i < count($this->skillsList); $i++){
+			echo "<li>" . $this->skillsList[$i] . "</li>";
 		}
 		echo "</ul>";
 	}
